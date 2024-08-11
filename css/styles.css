@@ -52,6 +52,8 @@ html {
 }
 
 
+
+
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -284,6 +286,8 @@ section {
     box-shadow: 0 0 50 px rgba(0, 0, 0);
 }
 
+
+
 .todo-app {
     min-height: 100vh;
     padding: 10px;
@@ -291,16 +295,78 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 }
+
+.container-b {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bubbles {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.b1 {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background: white;
+    box-shadow: 0 0 5px #e10ae9, 0 0 30px #b870b8;
+    margin: 0 15px;
+    border-radius: 50%;
+    transition: 0.3s ease;
+    filter: blur(3px);
+    animation: stars 60s linear infinite;
+    animation-duration: calc(120s/var(--i));
+    opacity: 0.8;
+}
+
+
+.b1:nth-child(even) {
+    background-color: #b85697;
+    box-shadow: 0 0 5px #03ffdd, 0 0 30px #9fe9e5;
+}
+
+@keyframes stars {
+    0% {
+        transform: translateY(100vh) scale(0.2);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translateY(-10vh) scale(0.4);
+        opacity: 0.8;
+    }
+}
+
+
+
+
+.todo-app html {
+    height: 100%;
+}
+
 
 .todo-app h1 {
     margin-top: 100px;
     margin-bottom: 20px;
-    font-size: 5rem;
+    font-size: 7rem;
     font-weight: 800;
     text-transform: uppercase;
     text-align: center;
     color: var(--todo-text-color);
+    z-index: 2;
 }
 
 .todo-app .wrapper {
@@ -309,6 +375,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    z-index: 2;
 }
 
 #todo-input {
