@@ -161,10 +161,16 @@ section {
     gap: 1rem;
 }
 
-.home-content-d img {
-    padding: 2rem 0;
-    width: 100%;
+.home-content-d .caret-svg{
+    margin-top: 2rem;
+    width: 25px;
+    height: 25px;
     cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.home-content-d .caret-svg:hover{
+    transform: scale(1.4);
 }
 
 .home-content h1 {
@@ -682,5 +688,34 @@ input[type="checkbox"] {
     .home-img img {
         width: 90vw;
         border-radius: 10%;
+    }
+}
+
+@media screen and (min-height: 668px) and (max-height: 900px) {
+    .home-content{
+        margin-top: -4rem;
+    }
+    .home-content h1{
+        font-size: 4rem;
+    }
+    .home-content h3{
+        font-size: 3rem;
+    }
+    .home-img {
+        width: 20%;
+        height: auto;
+        margin: 2rem;
+    }
+    .home-content p{
+        font-size: 1.6rem;
+    }
+    .btn{
+        font-size: 1.5rem;
+    }
+    .caret-svg{
+        margin-top: 2rem;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
     }
 }
