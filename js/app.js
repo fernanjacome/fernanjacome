@@ -89,3 +89,6 @@ function getTodo() {
     const todos = localStorage.getItem("todos") || "[]";
     return JSON.parse(todos);
 }
+
+
+

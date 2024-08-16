@@ -161,15 +161,31 @@ section {
     gap: 1rem;
 }
 
-.home-content-d .caret-svg{
+.home-content-d .caret-svg {
     margin-top: 2rem;
     width: 25px;
     height: 25px;
     cursor: pointer;
     transition: 0.3s ease;
+    animation: caret 1.5s ease infinite;
 }
 
-.home-content-d .caret-svg:hover{
+@keyframes caret {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+
+}
+
+.home-content-d .caret-svg:hover {
     transform: scale(1.4);
 }
 
@@ -190,37 +206,24 @@ section {
 }
 
 .home-content .anim-text {
-    border-right: 3px solid transparent;
-    width: 100%;
+    border-right: 3px solid white;
     white-space: nowrap;
     overflow: hidden;
-    animation: typing 4s steps(30, end) infinite,
-        cursor 0.75s step-end infinite;
+    display: inline-block;
 }
 
-@keyframes cursor {
-    0%, 100% {
+@keyframes blink-cursor {
+    50% {
         border-color: transparent;
     }
-
-    50% {
-        border-color: white;
-    }
 }
 
-@keyframes typing {
-    0% {
-        width: 0;
-    }
-
-    50% {
-        width: 100%;
-    }
-
-    100% {
-        width: 0;
-    }
+#text {
+    display: inline;
+    font-size: 5rem;
+    animation: blink-cursor 0.75s step-end infinite;
 }
+
 
 .home-content h3 {
     font-size: 3rem;
@@ -238,8 +241,8 @@ section {
 
 .home-img {
     margin: 3rem;
-    width: 15vw;
-    height: 15vw;
+    width: 10vw;
+    height: 10vw;
     object-fit: cover;
     border-radius: 50%;
     position: relative;
@@ -285,7 +288,8 @@ section {
 }
 
 
-.cards-gallery .card {
+
+.card {
     margin: 0 auto;
     padding: 2em;
     font-size: 2rem;
@@ -299,7 +303,7 @@ section {
     position: relative;
 }
 
-.cards-gallery .card::after, .card::before {
+.card::after, .card::before {
     content: '';
     position: absolute;
     inset: -0.5rem;
@@ -309,11 +313,11 @@ section {
     animation: rotation 5s linear infinite;
 }
 
-.cards-gallery .card::after {
+.card::after {
     filter: blur(3.5rem);
 }
 
-.cards-gallery .card::before {
+.card::before {
     filter: blur(.5rem);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -326,6 +330,57 @@ section {
     100% {
         --gradient-angle: 360deg;
     }
+}
+
+
+.experience {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 4rem;
+    border: 2px solid red;
+}
+
+.experience .row {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+}
+
+.experience h1 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+.experience .card {
+    width: 50%;
+    text-align: left;
+}
+
+.experience .card h2 {
+    font-size: 2rem;
+}
+
+.experience .card h3 {
+    font-size: 1.8rem;
+}
+
+.experience .card p {
+    font-size: 1.5rem;
+
+}
+
+.txt-gray {
+    color: gray;
+    font-weight: 400;
+}
+
+.experience .card::after, .card::before {
+    inset: 0.2rem;
+    filter: blur(1.2rem);
 }
 
 
@@ -692,27 +747,33 @@ input[type="checkbox"] {
 }
 
 @media screen and (min-height: 668px) and (max-height: 900px) {
-    .home-content{
+    .home-content {
         margin-top: -4rem;
     }
-    .home-content h1{
+
+    .home-content h1 {
         font-size: 4rem;
     }
-    .home-content h3{
+
+    .home-content h3 {
         font-size: 3rem;
     }
+
     .home-img {
         width: 20%;
         height: auto;
         margin: 2rem;
     }
-    .home-content p{
+
+    .home-content p {
         font-size: 1.6rem;
     }
-    .btn{
+
+    .btn {
         font-size: 1.5rem;
     }
-    .caret-svg{
+
+    .caret-svg {
         margin-top: 2rem;
         width: 25px;
         height: 25px;
