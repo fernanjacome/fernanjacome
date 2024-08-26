@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const ctx = document.getElementById('radarChartAlexSoft').getContext('2d');
     const ctx2 = document.getElementById('radarChartPayConer').getContext('2d');
-    const ctx3 = document.getElementById('radarChartCondorEnergy').getContext('2d');
-    const ctx4 = document.getElementById('radarChartFreelance').getContext('2d');
 
     const options = {
         responsive: true,
@@ -68,33 +66,25 @@ document.addEventListener('DOMContentLoaded', function() {
         options: options
     });
 
-    new Chart(ctx3, {
-        type: 'bar',
-        data: {
-            labels: ['SEO', 'ECommerce', 'Diseño Web', 'Optimización', 'SCRUM', 'UI/UX'],
-            datasets: [{
-                label: 'Experiencia Condor Energy',
-                data: [7, 7, 9, 8, 7, 6], // Valores de ejemplo (en meses)
-                backgroundColor: 'rgba(255, 206, 86, 0.5)', // Color opaco
-                borderColor: 'rgba(255, 206, 86, 0.7)', // Color del borde opaco
-                borderWidth: 1
-            }]
-        },
-        options: options
+    
+
+    let lazySections = document.querySelectorAll(".experience");
+
+    
+    let sectionObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                let section = entry.target;
+                // Cargar contenido o activar el elemento
+                section.classList.add("visible");
+                observer.unobserve(section);
+            }
+        });
     });
 
-    new Chart(ctx4, {
-        type: 'bar',
-        data: {
-            labels: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Frameworks', 'Otros'],
-            datasets: [{
-                label: 'Experiencia Freelance',
-                data: [10, 9, 8, 7, 6, 5], // Valores de ejemplo (en meses)
-                backgroundColor: 'rgba(75, 192, 192, 0.5)', // Color opaco
-                borderColor: 'rgba(75, 192, 192, 0.7)', // Color del borde opaco
-                borderWidth: 1
-            }]
-        },
-        options: options
+    lazySections.forEach(function (section) {
+        sectionObserver.observe(section);
     });
+    
+
 });
